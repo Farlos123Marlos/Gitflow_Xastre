@@ -11,7 +11,10 @@ int main() {
 	RandomIntArray A(3,max);
 	A.fillRandom(20,2000000);
 	array=A.GetArray();
-    Sort Sort;
+    	Sort Sort;
+	Bsearch B;
+
+    	int num=20;
 
     cout << "tempo quick"<< endl;
     for(i=0;i<3;i++){
