@@ -13,7 +13,14 @@ int main() {
 	array=A.GetArray();
     sort Sort;
 
-
+	cout << "tempo quick"<< endl;
+    for(i=0;i<3;i++){
+    	for(j=0;j<max;j++){
+    		aux[j] = array[i][j];
+		}
+    	double time = Sort.QuickSortTime(aux, max);
+    	cout<<"Array-"<<i<< " ,Execution time of Sort: " << time << " ms" <<endl;
+	}
 
     cout << "tempo bubble"<< endl;
     for(i=0;i<3;i++){
