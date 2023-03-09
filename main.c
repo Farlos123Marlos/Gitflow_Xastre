@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    int *array,aux,i,j,max = 50000;
+    int **array, *aux,i,j,max = 50000;
     aux = new int [max];
     RandomIntArray A(3,max);
     A.fillRandom(20,2000000);
