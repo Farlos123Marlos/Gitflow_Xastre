@@ -81,5 +81,72 @@ public:
         time_taken = double(end - start) / CLOCKS_PER_SEC;
         return time_taken;
     }
+    
+    void merge(int array[], int begin, int m, int end)
+    {
+        int i = 0, j = 0, k;
+        int A = m - begin + 1;
+        int B = end - m;
+
+        int left[A], right[B];
+
+        for (int i = 0; i < A; i++)
+            left[i] = array[begin + i];
+        for (int j = 0; j < B; j++)
+            right[j] = array[m + 1 + j];
+
+        k = begin;
+
+        while (i < A && j < B)
+        {
+            if (left[i] <= right[j])
+            {
+                array[k] = left[i];
+                i++;
+            }
+            else
+            {
+                array[k] = right[j];
+                j++;
+            }
+            k++;
+        }
+        while (i < A)
+        {
+            array[k] = left[i];
+            i++;
+            k++;
+        }
+
+        while (j < B)
+        {
+            array[k] = right[j];
+            j++;
+            k++;
+        }
+    }
+
+    void MergeSort(int array[], int begin, int end)
+    {
+        if (begin < end)
+        {
+            int m = (begin + end) / 2;
+            MergeSort(array, begin, m);
+            MergeSort(array, m + 1, end);
+            merge(array, begin, m, end);
+        }
+    }
+
+    double MergeSortTime(int array[], int high)
+    {
+        clock_t start, end;
+        double time_taken;
+        start = clock();
+        MergeSort(array, 0, high - 1);
+        end = clock();
+        //PrintArray(array, high);
+        time_taken = double(end - start) / CLOCKS_PER_SEC;
+        return time_taken;
+    }
 
 };
