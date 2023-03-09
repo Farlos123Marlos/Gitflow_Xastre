@@ -10,7 +10,7 @@ private:
 
 public:
     RandomIntArray(int rows, int cols) : rows_(rows), cols_(cols) {
-        // Allocate memory for the 2-dimensional array
+        
         array_ = new int*[rows_];
         for (int i = 0; i < rows_; i++) {
             array_[i] = new int[cols_];
