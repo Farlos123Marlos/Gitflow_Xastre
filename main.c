@@ -1,6 +1,7 @@
 #include <iostream>
 #include "GenRandom.h"
 #include "Sort.h"
+#include "Bsearch.h"
 
 using namespace std;
 
@@ -18,7 +19,8 @@ int main() {
             aux[j] = array[i][j];
         }
         double time = Sort.QuickSortTime(aux, max);
-        cout<<"Array-"<<i<< " ,Execution time of Sort: " << time << " ms" <<endl;
+	double timeSearch1 = B.BinarrySearch( num, aux,max);
+        cout<<"Array-"<<i<< " ,Execution time of Sort: " << time << " ms"<<", Time for Search, "<<timeSearch1 <<endl;
     }
 
     cout << "tempo bubble"<< endl;
@@ -27,7 +29,8 @@ int main() {
             aux[j] = array[i][j];
         }
         double time = Sort.BubbleSort(aux, max);
-        cout<<"Array-"<<i<< " ,Execution time of Sort: " << time << " ms" <<endl;
+        double timeSearch1 = B.BinarrySearch( num, aux,max);
+        cout<<"Array-"<<i<< " ,Execution time of Sort: " << time << " ms"<<", Time for Search, "<<timeSearch1 <<endl;
     }
 
     cout << "tempo merge"<< endl;
@@ -36,7 +39,8 @@ int main() {
             aux[j] = array[i][j];
         }
         double time = Sort.MergeSortTime(aux, max);
-        cout<<"Array-"<<i<< " ,Execution time of Sort: " << time << " ms" <<endl;
+        double timeSearch1 = B.BinarrySearch( num, aux,max);
+        cout<<"Array-"<<i<< " ,Execution time of Sort: " << time << " ms"<<", Time for Search, "<<timeSearch1 <<endl;
     }
 
     return 0;
