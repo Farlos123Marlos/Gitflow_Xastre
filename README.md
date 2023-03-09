@@ -1,7 +1,4 @@
 # Gitflow_Xastre- 
 
-  Execução: o programa deve ser executado naturalmente, já que os sorts estão todos instanciados numa classe main,
-basta realizar a chamada de cada sort desejado, além disso, caso a intenção seja alterar o tamanho do array,
-basta manipular a variável max.
-
+Para executar o programa, faça o download dos arquivos em uma mesma pasta, utiliza o programa Clion da JetBrains para abrir essa pasta (clique em aceitar a base existente). Após isso, execute o arquivo main.c via shift + F10. O programa irá rodar sozinho.
 
