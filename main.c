@@ -30,6 +30,15 @@ int main() {
         double time = Sort.BubbleSort(aux, max);
         cout<<"Array-"<<i<< " ,Execution time of Sort: " << time << " ms" <<endl;
     }
+	
+	cout << "tempo merge"<< endl;
+    for(i=0;i<3;i++){
+        for(j=0;j<max;j++){
+            aux[j] = array[i][j];
+        }
+        double time = Sort.MergeSortTime(aux, max);
+        cout<<"Array-"<<i<< " ,Execution time of Sort: " << time << " ms" <<endl;
+    }
 
 
     return 0;
