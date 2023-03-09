@@ -9,7 +9,6 @@ private:
     int** array_;
 
 public:
-    // Constructor to create a RandomIntArray object with the specified number of rows and columns
     RandomIntArray(int rows, int cols) : rows_(rows), cols_(cols) {
         // Allocate memory for the 2-dimensional array
         array_ = new int*[rows_];
@@ -18,7 +17,6 @@ public:
         }
     }
 
-    // Destructor to free the memory used by the 2-dimensional array
     ~RandomIntArray() {
         for (int i = 0; i < rows_; i++) {
             delete[] array_[i];
@@ -26,7 +24,6 @@ public:
         delete[] array_;
     }
 
-    // Method to fill the 2-dimensional array with random integers between low and high (inclusive)
     void fillRandom(int low, int high) {
         for (int i = 0; i < rows_; i++) {
             for (int j = 0; j < cols_; j++) {
@@ -35,7 +32,6 @@ public:
         }
     }
 
-    // Method to check whether any integer in the 2-dimensional array is outside the range of low to high (inclusive)
     bool hasOutOfBounds(int low, int high) {
         for (int i = 0; i < rows_; i++) {
             for (int j = 0; j < cols_; j++) {
