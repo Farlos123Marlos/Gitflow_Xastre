@@ -6,6 +6,8 @@ Faça o download do Aplicativo Docker em sua máquina, siga os passos de instala
 
 Ao finalizar a instalação total, vá para a pasta com os códigos atráves do seu navegador de arquivos, clique com o botão direito no fundo da pasta e selecione "abrir no terminal";
 
+Abra o docker ao fundo;
+
 Com o terminal aberto, execute os seguintes comandos em sequência:
 
   docker build . -t cpp_teste:1
