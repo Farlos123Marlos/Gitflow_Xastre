@@ -9,9 +9,7 @@ class Bsearch
 public:
     double BinarrySearch(int num, int array[], int max)
     {
-        clock_t start, end;
-        double time_taken;
-        start = clock();
+        iniciar_cronometro();
         int left = 0;
         while (left <= max)
         {
@@ -19,9 +17,8 @@ public:
             if (array[mid] == num)
             {
                 cout << "Tem no array ";
-                end = clock();
-                time_taken = double(end - start) / CLOCKS_PER_SEC;
-                return time_taken;
+                parar_cronometro();
+                return tempo_decorrido();
             }
             else if (array[mid] < num)
             {
@@ -33,9 +30,8 @@ public:
             }
         }
         cout << "N tem em no array ";
-        end = clock();
-        time_taken = double(end - start) / CLOCKS_PER_SEC;
-        return time_taken;
+        parar_cronometro();
+        return tempo_decorrido();
     }
     double LinearSearch(int array[], int num, int max){
         for (int i = 0; i < max; i++){
@@ -44,12 +40,9 @@ public:
     }
     double LineartTime(int array[], int high)
     {
-        clock_t start, end;
-        double time_taken;
-        start = clock();
+        iniciar_cronometro();
         LinearSearch(array, 0, high - 1);
-        end = clock();
-        time_taken = double(end - start) / CLOCKS_PER_SEC;
-        return time_taken;
+        parar_cronometro();
+        return tempo_decorrido();
     }
 };
