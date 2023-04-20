@@ -1,48 +1,144 @@
 #include <iostream>
 #include <ctime>
-#include <cstdlib>
+#include "cronometro.h"
+#include <iomanip>
 
 using namespace std;
 
-class Bsearch
+class Sort
 {
+
 public:
-    double BinarrySearch(int num, int array[], int max)
+
+
+    double BubbleSort(int *A1, int size){
+        int aux;
+        iniciar_cronometro();
+        for (int i = 0; i < size - 1; ++i) {
+            for (int j = 0; j < size - i - 1; ++j) {
+                if (A1[j] > A1[j + 1]) {
+                    aux = A1[j];
+                    A1[j] = A1[j + 1];
+                    A1[j + 1] = aux;
+                }
+            }
+        }
+        parar_cronometro();
+        return tempo_decorrido();
+    }
+
+    void swap(int *a, int *b)
+    {
+        int t = *a;
+        *a = *b;
+        *b = t;
+    }
+
+    int partition(int array[], int low, int high)
+    {
+
+        int pivot = array[high];
+
+        int i = (low - 1);
+
+        for (int j = low; j < high; j++)
+        {
+            if (array[j] <= pivot)
+            {
+
+                i++;
+
+                swap(&array[i], &array[j]);
+            }
+        }
+
+        swap(&array[i + 1], &array[high]);
+
+        return (i + 1);
+    }
+
+    void quickSort(int array[], int low, int high)
+    {
+        if (low < high)
+        {
+
+            int pi = partition(array, low, high);
+
+            quickSort(array, low, pi - 1);
+
+            quickSort(array, pi + 1, high);
+        }
+    }
+
+    double QuickSortTime(int array[], int high)
     {
         iniciar_cronometro();
-        int left = 0;
-        while (left <= max)
+        quickSort(array, 0, high - 1);
+        parar_cronometro();
+        return tempo_decorrido();
+    }
+
+    void merge(int array[], int begin, int m, int end)
+    {
+        int i = 0, j = 0, k;
+        int A = m - begin + 1;
+        int B = end - m;
+
+        int left[A], right[B];
+
+        for (int i = 0; i < A; i++)
+            left[i] = array[begin + i];
+        for (int j = 0; j < B; j++)
+            right[j] = array[m + 1 + j];
+
+        k = begin;
+
+        while (i < A && j < B)
         {
-            int mid = left + (max - left) / 2;
-            if (array[mid] == num)
+            if (left[i] <= right[j])
             {
-                cout << "Tem no array ";
-                parar_cronometro();
-                return tempo_decorrido();
-            }
-            else if (array[mid] < num)
-            {
-                left = mid + 1;
+                array[k] = left[i];
+                i++;
             }
             else
             {
-                max = mid - 1;
+                array[k] = right[j];
+                j++;
             }
+            k++;
         }
-        cout << "N tem em no array ";
-        parar_cronometro();
-        return tempo_decorrido();
+        while (i < A)
+        {
+            array[k] = left[i];
+            i++;
+            k++;
+        }
+
+        while (j < B)
+        {
+            array[k] = right[j];
+            j++;
+            k++;
+        }
     }
-    double LinearSearch(int array[], int num, int max){
-        for (int i = 0; i < max; i++){
-            if (array[i] == num){
-                return 0;}}
+
+    void MergeSort(int array[], int begin, int end)
+    {
+        if (begin < end)
+        {
+            int m = (begin + end) / 2;
+            MergeSort(array, begin, m);
+            MergeSort(array, m + 1, end);
+            merge(array, begin, m, end);
+        }
     }
-    double LineartTime(int array[], int high)
+
+    double MergeSortTime(int array[], int high)
     {
         iniciar_cronometro();
-        LinearSearch(array, 0, high - 1);
+        MergeSort(array, 0, high - 1);
         parar_cronometro();
         return tempo_decorrido();
     }
+
 };
