@@ -10,6 +10,8 @@ int main() {
     aux = new int [max];
     RandomIntArray A(3,max);
     A.fillRandom(20,2000000);
+  
+    printf("miguek");
     array=A.GetArray();
     Sort Sort;
     Bsearch B;
